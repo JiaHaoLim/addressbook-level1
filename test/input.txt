@@ -14,7 +14,7 @@
   list
 
 ##########################################################
-# test add person command, setup state for futuer tests
+# test add person command, setup state for future tests
 ##########################################################
 
   # should catch invalid args format
@@ -39,6 +39,20 @@
   add Dickson Ee e/dickson@nus.edu.sg p/444444
   list
   add Esther Potato p/555555 e/esther@notreal.potato
+  list
+
+##########################################################
+# test sort command
+##########################################################
+
+  # should sort in ascending order
+  sort ascend
+  list
+  # should sort in descending order
+  sort descend
+  list
+  # should sort in ascending order
+  sort ascend
   list
 
 ##########################################################
