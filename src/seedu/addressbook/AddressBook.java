@@ -117,9 +117,10 @@ public class AddressBook {
     private static final String COMMAND_LIST_EXAMPLE = COMMAND_LIST_WORD;
 
     private static final String COMMAND_SORT_WORD = "sort";
-    private static final String COMMAND_SORT_DESC = "Sorts and displays all persons as a list according to input order.";
+    private static final String COMMAND_SORT_DESC = "Sorts and displays all persons as a list"
+                                                  + "according to input order.";
     private static final String COMMAND_SORT_PARAMETER = "ascend, descend";
-    private static final String COMMAND_SORT_EXAMPLE = COMMAND_LIST_WORD + " ascend";
+    private static final String COMMAND_SORT_EXAMPLE = COMMAND_SORT_WORD + " ascend";
 
     private static final String COMMAND_DELETE_WORD = "delete";
     private static final String COMMAND_DELETE_DESC = "Deletes a person identified by the index number used in "
@@ -1091,6 +1092,7 @@ public class AddressBook {
         return getInfoForAddCommand() + LS
                 + getInfoForFindCommand() + LS
                 + getInfoForListCommand() + LS
+                + getInfoForSortCommand() + LS
                 + getInfoForDeleteCommand() + LS
                 + getInfoForClearCommand() + LS
                 + getInfoForExitCommand() + LS
@@ -1128,6 +1130,13 @@ public class AddressBook {
     private static String getInfoForListCommand() {
         return String.format(MESSAGE_COMMAND_HELP, COMMAND_LIST_WORD, COMMAND_LIST_DESC) + LS
                 + String.format(MESSAGE_COMMAND_HELP_EXAMPLE, COMMAND_LIST_EXAMPLE) + LS;
+    }
+
+    /** Returns the string for showing 'sort' command usage instruction */
+    private static String getInfoForSortCommand() {
+        return String.format(MESSAGE_COMMAND_HELP, COMMAND_SORT_WORD, COMMAND_SORT_DESC) + LS
+            + String.format(MESSAGE_COMMAND_HELP_PARAMETERS, COMMAND_SORT_PARAMETER) + LS
+            + String.format(MESSAGE_COMMAND_HELP_EXAMPLE, COMMAND_SORT_EXAMPLE) + LS;
     }
 
     /** Returns string for showing 'help' command usage instruction */
