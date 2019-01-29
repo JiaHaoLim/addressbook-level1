@@ -14,14 +14,7 @@ import java.nio.file.Files;
 import java.nio.file.InvalidPathException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.Optional;
-import java.util.Scanner;
-import java.util.Set;
+import java.util.*;
 
 /*
  * NOTE : =============================================================
@@ -117,9 +110,15 @@ public class AddressBook {
     private static final String COMMAND_LIST_EXAMPLE = COMMAND_LIST_WORD;
 
     private static final String COMMAND_SORT_WORD = "sort";
-    private static final String COMMAND_SORT_DESC = "Sorts and displays all persons as a list according to input order.";
+    private static final String COMMAND_SORT_DESC = "Sorts and displays all persons as a list "
+                                                  + "according to input order.";
     private static final String COMMAND_SORT_PARAMETER = "ascend, descend";
-    private static final String COMMAND_SORT_EXAMPLE = COMMAND_LIST_WORD + " ascend";
+    private static final String COMMAND_SORT_EXAMPLE = COMMAND_SORT_WORD + " ascend";
+
+    /**
+     * List of all arguments for sorting.
+     */
+    private static final Set<String> SORT_ARGS = Set.of("ascend", "descend");
 
     private static final String COMMAND_DELETE_WORD = "delete";
     private static final String COMMAND_DELETE_DESC = "Deletes a person identified by the index number used in "
@@ -381,6 +380,8 @@ public class AddressBook {
             return executeFindPersons(commandArgs);
         case COMMAND_LIST_WORD:
             return executeListAllPersonsInAddressBook();
+        case COMMAND_SORT_WORD:
+            return executeSortList(commandArgs);
         case COMMAND_DELETE_WORD:
             return executeDeletePerson(commandArgs);
         case COMMAND_CLEAR_WORD:
@@ -581,6 +582,38 @@ public class AddressBook {
      */
     private static String executeListAllPersonsInAddressBook() {
         ArrayList<String[]> toBeDisplayed = getAllPersonsInAddressBook();
+        showToUser(toBeDisplayed);
+        return getMessageForPersonsDisplayedSummary(toBeDisplayed);
+    }
+
+    /**
+     * Sorts all persons in the address book to the user in the input order.
+     *
+     * @param commandArgs full command args string from the user
+     * @return feedback display message for the operation result
+     */
+    private static String executeSortList(String commandArgs) {
+        if (!SORT_ARGS.contains(commandArgs)) {
+            return getMessageForInvalidCommandInput(COMMAND_SORT_WORD, getInfoForSortCommand());
+        }
+
+        ArrayList<String[]> toBeDisplayed = getAllPersonsInAddressBook();
+        Comparator order = null;
+
+        switch (commandArgs) {
+            case "ascend":
+                order = new Comparators.Ascend();
+                break;
+            case "descend":
+                order = new Comparators.Descend();
+                break;
+            default :
+                System.out.println("You somehow broke this");
+                break;
+        }
+
+        toBeDisplayed.sort(order);
+
         showToUser(toBeDisplayed);
         return getMessageForPersonsDisplayedSummary(toBeDisplayed);
     }
@@ -1091,6 +1124,7 @@ public class AddressBook {
         return getInfoForAddCommand() + LS
                 + getInfoForFindCommand() + LS
                 + getInfoForListCommand() + LS
+                + getInfoForSortCommand() + LS
                 + getInfoForDeleteCommand() + LS
                 + getInfoForClearCommand() + LS
                 + getInfoForExitCommand() + LS
@@ -1128,6 +1162,13 @@ public class AddressBook {
     private static String getInfoForListCommand() {
         return String.format(MESSAGE_COMMAND_HELP, COMMAND_LIST_WORD, COMMAND_LIST_DESC) + LS
                 + String.format(MESSAGE_COMMAND_HELP_EXAMPLE, COMMAND_LIST_EXAMPLE) + LS;
+    }
+
+    /** Returns the string for showing 'sort' command usage instruction */
+    private static String getInfoForSortCommand() {
+        return String.format(MESSAGE_COMMAND_HELP, COMMAND_SORT_WORD, COMMAND_SORT_DESC) + LS
+            + String.format(MESSAGE_COMMAND_HELP_PARAMETERS, COMMAND_SORT_PARAMETER) + LS
+            + String.format(MESSAGE_COMMAND_HELP_EXAMPLE, COMMAND_SORT_EXAMPLE) + LS;
     }
 
     /** Returns string for showing 'help' command usage instruction */
