@@ -1,5 +1,7 @@
 @ECHO OFF
 
+set "path=%path%;C:\Program Files\Java\jdk-9.0.4\bin"
+
 REM change current directory to the location of this script
 pushd %~dp0
 
@@ -7,7 +9,7 @@ REM create bin directory if it doesn't exist
 if not exist ..\bin mkdir ..\bin
 
 REM compile the code into the bin folder
-javac  ..\src\seedu\addressbook\Addressbook.java -d ..\bin
+javac  ..\src\seedu\addressbook\*.java -d ..\bin
 IF ERRORLEVEL 1 (
     echo ********** BUILD FAILURE ********** 
     REM return to previous directory

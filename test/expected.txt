@@ -2,6 +2,7 @@
 || ===================================================
 || AddressBook Level 1 - Version 1.0
 || Welcome to your Address Book!
+|| For a list of commands, type 'help'
 || ===================================================
 || The given file name [ ] is not a valid file name!
 || Exiting Address Book... Good bye!
@@ -11,6 +12,7 @@
 || ===================================================
 || AddressBook Level 1 - Version 1.0
 || Welcome to your Address Book!
+|| For a list of commands, type 'help'
 || ===================================================
 || The given file name [directoryThatDoesNotExist/valid.filename] is not a valid file name!
 || Exiting Address Book... Good bye!
@@ -20,6 +22,7 @@
 || ===================================================
 || AddressBook Level 1 - Version 1.0
 || Welcome to your Address Book!
+|| For a list of commands, type 'help'
 || ===================================================
 || The given file name [.noFilename] is not a valid file name!
 || Exiting Address Book... Good bye!
@@ -29,6 +32,7 @@
 || ===================================================
 || AddressBook Level 1 - Version 1.0
 || Welcome to your Address Book!
+|| For a list of commands, type 'help'
 || ===================================================
 || The given file name [data/notRegularFile.txt] is not a valid file name!
 || Exiting Address Book... Good bye!
@@ -38,6 +42,7 @@
 || ===================================================
 || AddressBook Level 1 - Version 1.0
 || Welcome to your Address Book!
+|| For a list of commands, type 'help'
 || ===================================================
 || Enter command: || [Command entered:exit]
 || Exiting Address Book... Good bye!
@@ -47,6 +52,7 @@
 || ===================================================
 || AddressBook Level 1 - Version 1.0
 || Welcome to your Address Book!
+|| For a list of commands, type 'help'
 || ===================================================
 || Using default storage file : addressbook.txt
 || Enter command: || [Command entered:  sfdfd]
@@ -61,6 +67,10 @@
 || 
 || list: Displays all persons as a list with index numbers.
 || 	Example: list
+|| 
+|| sort: Sorts and displays all persons as a list according to input order.
+||      Parameters: ascend, descend
+||      Example: sort ascend
 || 
 || delete: Deletes a person identified by the index number used in the last find/list call.
 || 	Parameters: INDEX
@@ -163,6 +173,33 @@
 || New person added: Esther Potato, Phone: 555555, Email: esther@notreal.potato
 || ===================================================
 || Enter command: || [Command entered:  list]
+|| 	1. Adam Brown  Phone Number: 111111  Email: adam@gmail.com
+|| 	2. Betsy Choo  Phone Number: 222222  Email: benchoo@nus.edu.sg
+|| 	3. Charlie Dickson  Phone Number: 333333  Email: charlie.d@nus.edu.sg
+|| 	4. Dickson Ee  Phone Number: 444444  Email: dickson@nus.edu.sg
+|| 	5. Esther Potato  Phone Number: 555555  Email: esther@notreal.potato
+|| 
+|| 5 persons found!
+|| ===================================================
+|| Enter command: || [Command entered:  sort ascend]
+|| 	1. Adam Brown  Phone Number: 111111  Email: adam@gmail.com
+|| 	2. Betsy Choo  Phone Number: 222222  Email: benchoo@nus.edu.sg
+|| 	3. Charlie Dickson  Phone Number: 333333  Email: charlie.d@nus.edu.sg
+|| 	4. Dickson Ee  Phone Number: 444444  Email: dickson@nus.edu.sg
+|| 	5. Esther Potato  Phone Number: 555555  Email: esther@notreal.potato
+|| 
+|| 5 persons found!
+|| ===================================================
+|| Enter command: || [Command entered:  sort descend]
+|| 	1. Esther Potato  Phone Number: 555555  Email: esther@notreal.potato
+|| 	2. Dickson Ee  Phone Number: 444444  Email: dickson@nus.edu.sg
+|| 	3. Charlie Dickson  Phone Number: 333333  Email: charlie.d@nus.edu.sg
+|| 	4. Betsy Choo  Phone Number: 222222  Email: benchoo@nus.edu.sg
+|| 	5. Adam Brown  Phone Number: 111111  Email: adam@gmail.com
+|| 
+|| 5 persons found!
+|| ===================================================
+|| Enter command: || [Command entered:  sort ascend]
 || 	1. Adam Brown  Phone Number: 111111  Email: adam@gmail.com
 || 	2. Betsy Choo  Phone Number: 222222  Email: benchoo@nus.edu.sg
 || 	3. Charlie Dickson  Phone Number: 333333  Email: charlie.d@nus.edu.sg
