@@ -587,7 +587,7 @@ public class AddressBook {
     }
 
     /**
-     * Sorts all persons in the address book to the user in the input order.
+     * Sorts all persons in the address book by name according to the input order.
      *
      * @param commandArgs full command args string from the user
      * @return feedback display message for the operation result
