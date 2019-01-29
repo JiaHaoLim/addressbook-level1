@@ -17,7 +17,7 @@ public class Comparators {
          *         0 if s1 and s2 are the same
          */
         public int compare(String s1[], String s2[]) {
-            return s1[0].compareTo(s2[0]);
+            return s1[1].compareTo(s2[1]);
         }
     }
 
@@ -35,7 +35,7 @@ public class Comparators {
          *         0 if s1 and s2 are the same
          */
         public int compare(String s1[], String s2[]) {
-            return s2[0].compareTo(s1[0]);
+            return s2[1].compareTo(s1[1]);
         }
     }
 }
