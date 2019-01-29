@@ -3,7 +3,7 @@ package seedu.addressbook;
 import java.util.Comparator;
 
 public class Comparators {
-    class Ascending implements Comparator<String> {
+    static class Ascend implements Comparator<String[]> {
 
         /**
          * compare()
@@ -16,12 +16,12 @@ public class Comparators {
          *         -1 if s1 s2 is in descending order
          *         0 if s1 and s2 are the same
          */
-        public int compare(String s1, String s2) {
-            return s1.compareTo(s2);
+        public int compare(String s1[], String s2[]) {
+            return s1[0].compareTo(s2[0]);
         }
     }
 
-    class Descending implements Comparator<String> {
+    static class Descend implements Comparator<String[]> {
 
         /**
          * compare()
@@ -34,8 +34,8 @@ public class Comparators {
          *         -1 if s1 s2 is in ascending order
          *         0 if s1 and s2 are the same
          */
-        public int compare(String s1, String s2) {
-            return s2.compareTo(s1);
+        public int compare(String s1[], String s2[]) {
+            return s2[0].compareTo(s1[0]);
         }
     }
 }
