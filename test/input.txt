@@ -47,13 +47,10 @@
 
   # should sort in ascending order
   sort ascend
-  list
   # should sort in descending order
   sort descend
-  list
   # should sort in ascending order
   sort ascend
-  list
 
 ##########################################################
 # test find persons command
